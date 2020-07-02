@@ -24,9 +24,25 @@ Item{
         height : 10
         color : "red"
         z:5
+
+//        onXChanged:
+//            NumberAnimation {
+//            target: firChar
+//            property: "x"
+//            duration: 50
+//            easing.type: Easing.Linear
+//        }
+//        onYChanged:
+//            NumberAnimation {
+//            target: firChar
+//            property: "y"
+//            duration: 50
+//            easing.type: Easing.Linear
+//        }
     }
     Component.onCompleted: moveT.start()
     property int mo: 0
+    property int moveInterval: 5
     property int xpm: 0
     property int xmm: 0
 
@@ -36,11 +52,6 @@ Item{
     property int xdir : 1
     property int ydir : 1
 
-    function isEdge()
-    {
-
-    }
-
     function edgecheck( ){
         var ret = false
         if(firChar.x === 0 || firChar.x === www.width )
@@ -48,7 +59,6 @@ Item{
             xdir = xdir * -1
             ret = true
         }
-
 
         if(firChar.y ===0 || firChar.y === www.height)
         {
@@ -89,43 +99,34 @@ Item{
         {
         case 0:
             xmm++
-            if(firChar.x - 1*xdir  >= 0 && firChar.x - 1*xdir <= www.width)
-                firChar.x -= 1 * xdir
-            else
-                console.log("not moving to x m")
+            if(firChar.x - moveInterval*xdir  >= 0 && firChar.x - moveInterval*xdir <= www.width)
+                firChar.x -= moveInterval * xdir
             break;
         case 1:
             ymm++
-            if(firChar.y - 1*ydir >= 0 && firChar.y -1 *ydir <=www.height)
-                firChar.y -= 1 * ydir
-            else
-                console.log("not moving to y m")
+            if(firChar.y - moveInterval*ydir >= 0 && firChar.y -moveInterval *ydir <=www.height)
+                firChar.y -= moveInterval * ydir
             break;
         case 2:            
             xpm++
-            if(firChar.x + 1*xdir >=0 && firChar.x + 1*xdir <= www.width)
-                firChar.x += 1 * xdir
-            else
-                console.log("not moving to x p")
+            if(firChar.x + moveInterval*xdir >=0 && firChar.x + moveInterval*xdir <= www.width)
+                firChar.x += moveInterval * xdir
             break;
         case 3:
             ypm++
-            if(firChar.y + 1*ydir >=0 && firChar.y + 1* ydir <= www.height)
-                firChar.y += 1 * ydir
-            else
-                console.log("not moving to y p ")
+            if(firChar.y + moveInterval*ydir >=0 && firChar.y + moveInterval* ydir <= www.height)
+                firChar.y += moveInterval * ydir
             break;
         default:
             break;
         }
         pathPaint.requestPaint()
-//        visit[firChar.x][firChar.y] = 1
     }
 
     Timer{
         id :moveT
         onTriggered: move()
-        interval: 5
+        interval: 50
         repeat: true
     }
 
