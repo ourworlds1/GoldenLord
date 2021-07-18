@@ -14,8 +14,6 @@ bool AbstractCharacter::attck(AbstractCharacter* target) {
     int64_t atDef = this->mAtt - target->getDef();
     int64_t tarHp = target->getHp();
 
-    qDebug() << Q_FUNC_INFO << "atdef :" << atDef << "tarHp : " << tarHp;
-
     bool ret = true;
     if (atDef > 0) {
         tarHp -= atDef;
@@ -23,7 +21,6 @@ bool AbstractCharacter::attck(AbstractCharacter* target) {
     }
     target->setHP(tarHp);
 
-    qDebug() << Q_FUNC_INFO << target->getHp();
     return ret;
 }
 
