@@ -5,8 +5,8 @@
 int main(int argc, char* argv[]) {
     QCoreApplication a(argc, argv);
 
-    Human* A = new Human(100, 20, 20, 20);
-    Human* B = new Human(100, 30, 30, 30);
+    Human* A = new Human();
+    Human* B = new Human();
 
     qDebug() << "A Hp : " << A->getHp() << "B Hp :" << B->getHp();
 

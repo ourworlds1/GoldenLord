@@ -9,7 +9,10 @@ CONFIG -= app_bundle
 
 SOURCES += \
         Abstractcharacter.cpp \
+        Dwarf.cpp \
+        Elf.cpp \
         Human.cpp \
+        Orc.cpp \
         main.cpp
 
 # Default rules for deployment.
@@ -19,4 +22,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     Abstractcharacter.h \
-    Human.h
+    Dwarf.h \
+    Elf.h \
+    Human.h \
+    Orc.h

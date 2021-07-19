@@ -4,8 +4,10 @@
 AbstractCharacter::AbstractCharacter() : mXPos(0), mYPos(0), mHp(0), mAtt(0), mDef(0), mAgil(0) {}
 
 bool AbstractCharacter::move(int64_t x, int64_t y) {
-    this->mXPos += x;
-    this->mYPos += y;
+    if (mMoveAllowment == true) {
+        this->mXPos += x;
+        this->mYPos += y;
+    }
 
     return true;
 }

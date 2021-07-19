@@ -29,6 +29,9 @@ protected:
     int64_t mAtt;
     int64_t mDef;
     int64_t mAgil;
+
+private:
+    bool mMoveAllowment = true;
 };
 
 #endif  // ABSTRACTCHARACTER_H

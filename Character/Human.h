@@ -5,8 +5,7 @@
 
 class Human : public AbstractCharacter {
 public:
-    explicit Human();
-    explicit Human(int64_t hp, int64_t att, int64_t def, int64_t agil);
+    explicit Human(int64_t hp = 100, int64_t att = 20, int64_t def = 10, int64_t agil = 30);
 };
 
 #endif  // HUMAN_H

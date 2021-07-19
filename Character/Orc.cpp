@@ -1,6 +1,6 @@
-#include "Human.h"
+#include "Orc.h"
 
-Human::Human(int64_t hp, int64_t att, int64_t def, int64_t agil) {
+Orc::Orc(int64_t hp, int64_t att, int64_t def, int64_t agil) {
     mXPos = 0;
     mYPos = 0;
     mHp = hp;
